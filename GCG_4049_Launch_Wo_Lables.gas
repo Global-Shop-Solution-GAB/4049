@@ -1,0 +1,30 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Coded by AGM
+'Launch Work Order Lables from GUI
+'Hooks: 15710, 15770	
+'Passed 000020
+
+
+V.Local.sParams.Declare(String)
+F.Intrinsic.Control.SelectCase(V.Caller.Hook)
+	F.Intrinsic.Control.Case(15710)
+		'Populate  hook, change script 2 button "WO Lables"
+		V.Passed.000020.Set("WO Labels")
+	F.Intrinsic.Control.Case(15770)
+		'Launch Work Order Lables screen ORD172-ORS172A
+		F.Global.General.CallWrapperAsync(50,"ORD172/W")
+F.Intrinsic.Control.EndSelect
+
+Program.Sub.Main.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$AGM$}$2/2/2015 10:42:29 AM
+Program.Sub.Comments.End
+
